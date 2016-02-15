@@ -1,0 +1,13 @@
+prefix=A:/Documents/12_Telecan/Cubie/AMQPSender
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: rabbitmq-c
+Description: An AMQP 0-9-1 client library
+Version: 0.8.0
+URL: https://github.com/alanxz/rabbitmq-c
+Requires.private: 
+Libs: -L${libdir} -lrabbitmq
+Libs.private: ws2_32
+CFlags: -I${includedir}
