@@ -70,15 +70,10 @@ void closeAmqp(amqp_connection_state_t &conn) {
 void send_batch(amqp_connection_state_t conn, char const *queue_name, const QByteArray &datagram) {
 	int i;
 	int length = datagram.size();
-	//char *message = new char[length + 1];	//! memoryleaks without delete[]
 	amqp_bytes_t message_bytes;
 
-	//for (i = 0; i < length; i++) {
-	//	message[i] = datagram.data()[i];
-	//}
-
 	message_bytes.len = length;
-	message_bytes.bytes = (void *)datagram.data();//message;
+	message_bytes.bytes = (void *)datagram.data(); //message;
 
 	amqp_basic_properties_t props;
     props._flags = AMQP_BASIC_CONTENT_TYPE_FLAG |
@@ -87,7 +82,6 @@ void send_batch(amqp_connection_state_t conn, char const *queue_name, const QByt
     props.delivery_mode = 2; /* persistent delivery mode */
 
 	// mandatory 1 immediate 0 publisher
-	//! if you want to make delete[], you should divide die and publish functions
 	die_on_error(
 		amqp_basic_publish(conn,
 			1,

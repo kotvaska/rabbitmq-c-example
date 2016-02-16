@@ -1,4 +1,4 @@
-﻿Build started 15.02.2016 20:46:59.
+﻿Build started 15.02.2016 22:19:47.
      1>Project "A:\Documents\09_VCS\091_Git\RabbitMQExamples\AmqpProducer\AmqpProducer\AmqpProducer.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /IA:\Documents\09_VCS\091_Git\RabbitMQExamples\AmqpProducer\\include /I. /IC:\Qt\Qt5.5.1\5.5\msvc2012\\include /I.\GeneratedFiles\Debug /IC:\Qt\Qt5.5.1\5.5\msvc2012\\include\QtCore /IC:\Qt\Qt5.5.1\5.5\msvc2012\\include\QtNetwork /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_NETWORK_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -12,4 +12,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.70
+Time Elapsed 00:00:01.64

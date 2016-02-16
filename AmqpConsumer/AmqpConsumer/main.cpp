@@ -78,6 +78,9 @@ int main(int argc, char *argv[]) {
 			ok = false;
 			continue;
 		}
+		
+		// envelope.message.body.bytes - data
+		// envelope.message.body.len - length
 
 		#ifdef DUMP_PACKETS
 		
@@ -95,12 +98,6 @@ int main(int argc, char *argv[]) {
 		amqp_dump(envelope.message.body.bytes, envelope.message.body.len);
 
 		#endif
-		
-		// envelope.message.body.bytes - пакет (всё, что положили в очередь)
-		// envelope.message.body.len - длина пакета в байтах
-
-		char *data = (char*)envelope.message.body.bytes;
-		char *dataEnd = data + envelope.message.body.len;
 
 		ackEnvelope = i % 2 == 0;	
 

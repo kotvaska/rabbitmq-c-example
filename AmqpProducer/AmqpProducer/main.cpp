@@ -29,10 +29,6 @@ int status;
 amqp_socket_t *socket = NULL;
 amqp_connection_state_t conn;
 
-void SendToAmqp(const QByteArray &message) {
-	send_batch(conn, bindingkey, message);
-}
-
 int main(int argc, char *argv[]) {
 	QCoreApplication a(argc, argv);
 	qDebug() << "Started..." << "\n";
@@ -41,6 +37,7 @@ int main(int argc, char *argv[]) {
 	while (!initAmqp(conn, socket, status)) {
 		if (++count_try > 10) {
 			qDebug() << "Can't open AMPQ..." << "\n";
+			closeAmqp(conn);
 			exit(1);
 		}
 		closeAmqp(conn);
@@ -51,7 +48,7 @@ int main(int argc, char *argv[]) {
 		QByteArray msg;
 		msg.append("Test message #");
 		msg.append(QString::number(i));
-		SendToAmqp(msg);
+		send_batch(conn, bindingkey, msg);
 	}
 
 	closeAmqp(conn);
